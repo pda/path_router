@@ -1,0 +1,12 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    eventmachine (0.12.10)
+    proxymachine (1.2.4)
+      eventmachine (>= 0.12.10)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  proxymachine
