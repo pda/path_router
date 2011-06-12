@@ -1,8 +1,17 @@
 class Router
 
+  def self.instance
+    @instance ||= new
+  end
+
   def initialize
+    reset
+  end
+
+  def reset
     @backends = {}
     @routes = {}
+    self
   end
 
   def load_routes(file = "routes")
