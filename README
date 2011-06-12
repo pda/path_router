@@ -1,0 +1,40 @@
+path_router
+===========
+
+HTTP routing by path, build on ProxyMachine.
+
+
+Install
+-------
+
+bundle install
+cp example_routes.rb routes.rb
+proxymachine -c path_router.rb
+
+
+Tests
+-----
+
+$ rspec spec/*_spec.rb
+
+Router
+  routes by specified patterns
+  defaults to first backend for unmatched requests
+
+Finished in 0.00056 seconds
+2 examples, 0 failures
+
+
+Routes
+------
+
+See example_routes.rb to get the general idea.
+
+The only non-obvious point is that the first backend in the hash is the default catch-all.
+Ruby 1.8 users get random default backend; think of it as an easter egg ;)
+
+
+Meh.
+----
+
+(c) 2011 Paul Annesley, MIT licence.
