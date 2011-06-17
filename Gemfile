@@ -1,7 +1,4 @@
-source :rubygems
+source "http://rubygems.org"
 
-gem "proxymachine"
-
-group :test do
-  gem "rspec"
-end
+# see path_router.gemspec
+gemspec
