@@ -3,4 +3,4 @@
 /Gemfile.lock
 /pkg/*
 
-/routes.rb
+/path_router.rb

@@ -15,9 +15,9 @@ module PathRouter
       self
     end
 
-    def load_routes(file = "routes")
-      puts "Loading routes."
-      load file + ".rb"
+    def load_routes(file = "path_router.rb")
+      puts "Loading routes from #{file}"
+      load file
     rescue LoadError => e
       puts "Failed to load routes: " << e.message
     end
