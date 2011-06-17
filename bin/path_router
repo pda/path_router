@@ -2,15 +2,27 @@
 
 require 'optparse'
 
-config = File.realpath(File.join(File.dirname(__FILE__), "../proxymachine_config.rb"))
-args = [ "--config", config ]
+BASEDIR = File.realpath(File.join(File.dirname(__FILE__), ".."))
+
+if ARGV.include? "init"
+  require "fileutils"
+  dest = "./path_router.rb"
+  FileUtils.cp File.join(BASEDIR, "example_path_router.rb"), dest
+  puts "Created example #{dest}"
+  exit
+end
+
+args = [ "--config", File.join(BASEDIR, "proxymachine_config.rb") ]
 
 OptionParser.new do |opts|
     opts.banner = <<-EOF
-  Usage:
-    path_router [-h <host>] [-p <port>]
 
-  Loads path_router.rb in the current directory.
+  path_router init
+    Creates example path_router.rb into the current directory.
+
+  path_router [-h <host>] [-p <port>]
+    Start ProxyMachine with path_router config loaded from path_router.rb in
+    the current directory.
 
   Options:
 EOF
