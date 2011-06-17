@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+config = File.realpath(File.join(File.dirname(__FILE__), "../proxymachine_config.rb"))
+args = [ "--config", config ]
+
+OptionParser.new do |opts|
+    opts.banner = <<-EOF
+  Usage:
+    path_router [-h <host>] [-p <port>]
+
+  Loads path_router.rb in the current directory.
+
+  Options:
+EOF
+  opts.on("-hHOST", "--host HOST", "Hostname to bind. Default 0.0.0.0") do |host|
+    args += [ "--host", host ]
+  end
+  opts.on("-pPORT", "--port PORT", "Port to listen on. Default 5432") do |port|
+    args += [ "--port", port ]
+  end
+end.parse!
+
+exec "proxymachine", *args
