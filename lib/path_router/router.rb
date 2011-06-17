@@ -16,6 +16,7 @@ module PathRouter
     end
 
     def load_routes(file = "path_router.rb")
+      file = File.join(Dir.pwd, file)
       puts "Loading routes from #{file}"
       load file
     rescue LoadError => e
