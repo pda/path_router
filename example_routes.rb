@@ -1,4 +1,4 @@
-Router.instance.reset.tap do |r|
+PathRouter::Router.instance.reset.tap do |r|
 
   r.backends = {
     rails:  "127.0.0.1:3000",
